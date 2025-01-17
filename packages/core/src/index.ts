@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = require("path")
+const path = require("upath")
 
 const fg = require('fast-glob')
 import injectExportQuoteNum from './inject-export-quote-num'
@@ -228,7 +228,7 @@ function getFileDeps (file: string, config: LocalConfig): FileDeps {
     }
     logger.error(`getFileDeps：未被处理的文件格式${extname}`)
     return defEmptyDeps()
-}
+} 
 
 
 /**
@@ -296,7 +296,15 @@ function injectFileDeps(
     }
 }
 
-
+/**
+ * 获取绝对路径，兼容 win
+ * @param root 
+ * @returns 
+ */
+function getNormalizeFullPath (root: string) {
+    const p = path.normalize(root)
+    return path.isAbsolute(p) ? p : path.join(process.cwd(), p)
+}
 
 
 // ---------------------------------------------execute------------------------------------------------
@@ -312,11 +320,18 @@ async function main(config: LocalConfig): Promise<DataCollector> {
     const fileQuote: FileQuote = {}
     const exportQuote: ExportDeps = {}
     const unknownQuote: ImportDeps = {}
+    const configPath = getNormalizeFullPath(config.path || config.root)
+    config.root = configPath
+    
+    const searchPath = path.normalize(
+        fs.lstatSync(configPath).isDirectory()
+            ? configPath + '/**/*'
+            : configPath
+    )
+    
+    // config info
+    console.log(JSON.stringify(config, null, 2))
 
-    const configPath = config.path || config.root
-    const searchPath = fs.lstatSync(configPath).isDirectory()
-        ? configPath + '/**/*'
-        : configPath
     const files: string [] = await fg([searchPath], {
         ignore: config.ignore || ['**/node_modules/**', '**/dist/**']
     })

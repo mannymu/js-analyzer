@@ -9,10 +9,12 @@ import {
   VIEW_NAME_MAP,
   switchChartView,
   switchChartLabel,
+  switchChartLabelLevel,
   getActiveFile,
 } from './echart';
 import { useCodePreview } from '../../components/CodePreview/use-code-preview';
 import Select from '../../components/Select.vue';
+import SplitLine from '../../components/SplitLine.vue';
 
 const emit = defineEmits([
   'node-click',
@@ -29,6 +31,7 @@ function handleCodePreview() {
 
 const viewName = computed(() => VIEW_NAME_MAP[currentViewType.value]);
 const currentViewType = ref(CHART_VIEW_TYPE.file);
+const showTextLevel = ref(1);
 
 chartEmitter.on('viewChange', (type) => {
   currentViewType.value = type;
@@ -72,7 +75,7 @@ const options = Object.entries(VIEW_NAME_MAP)
     <div
       class="absolute left-0 top-4 z-10 w-full flex items-center justify-between px-10 h-8 opacity-50"
     >
-      <div class="bg-gray rounded-lg px-4 h-8 leading-8">
+      <div class="flex items-center bg-gray rounded-lg px-4 py-1">
         <Select
           v-model="currentViewType"
           :optionsList="options"
@@ -86,33 +89,44 @@ const options = Object.entries(VIEW_NAME_MAP)
               switchChartView(v);
             }
           "
-        ></Select>
-      </div>
-      <div class="text-normal">{{ viewName }}</div>
-      <div class="bg-gray rounded-lg px-4 h-8 leading-8">
+        >
+        </Select>
+        <SplitLine />
+        <!-- <span class="text-normal">节点层级</span> -->
+        <Select
+          v-model="showTextLevel"
+          :disabled="
+            [CHART_VIEW_TYPE.folder, CHART_VIEW_TYPE.json].includes(
+              currentViewType,
+            )
+          "
+          :optionsList="[
+            { text: '节点层级：不显示', value: 0 },
+            { text: '节点层级：1', value: 1 },
+            { text: '节点层级：2', value: 2 },
+            { text: '节点层级：3', value: 3 },
+          ]"
+          @onChange="
+            (v) => {
+              switchChartLabelLevel(v);
+            }
+          "
+        >
+        </Select>
+        <SplitLine />
         <IconBtn
           icon="icon-reset"
           :title="$tf('重置')"
           @click="restoreChart"
         ></IconBtn>
-        <IconBtn
+        <!-- <IconBtn
           icon="icon-wenzi"
-          class="ml-4"
           :title="$tf('显示节点文字')"
           @click="switchChartLabel"
-        ></IconBtn>
-        <!-- <IconBtn
-          icon="icon-huanyuanhuabu"
-          class="ml-4"
-          title=$tf("缩放重置")
-          @click="reRoomChart"
         ></IconBtn> -->
-        <!-- <IconBtn
-          icon="icon-10json"
-          class="ml-4"
-          title="JSON"
-          @click="$emit('action-show-json')"
-        ></IconBtn> -->
+      </div>
+      <div class="text-normal">{{ viewName }}</div>
+      <div class="bg-gray rounded-lg px-4 py-1">
         <IconBtn
           v-if="
             [
@@ -123,9 +137,9 @@ const options = Object.entries(VIEW_NAME_MAP)
           "
           icon="icon-wenjianxinxi"
           :title="$tf('文件详情')"
-          class="ml-4"
           @click="$emit('action-show-file-detail')"
         ></IconBtn>
+        <SplitLine />
         <IconBtn
           v-if="
             [
@@ -135,7 +149,6 @@ const options = Object.entries(VIEW_NAME_MAP)
             ].includes(currentViewType)
           "
           icon="icon-preview"
-          class="ml-4"
           :title="$tf('代码预览')"
           @click="handleCodePreview"
         ></IconBtn>

@@ -62,6 +62,9 @@ importers:
       tslib:
         specifier: ^2.4.0
         version: 2.5.0
+      upath:
+        specifier: ^2.0.1
+        version: 2.0.1
       winston:
         specifier: ^3.5.1
         version: 3.11.0
@@ -81,6 +84,9 @@ importers:
       '@rollup/plugin-typescript':
         specifier: ^8.3.0
         version: 8.5.0(rollup@2.79.1)(tslib@2.5.0)(typescript@4.9.5)
+      '@semantic-release/npm':
+        specifier: ^12.0.0
+        version: 12.0.0(semantic-release@23.0.8)
       '@types/node':
         specifier: 14.x
         version: 14.18.63
@@ -111,6 +117,9 @@ importers:
       rollup-plugin-typescript2:
         specifier: ^0.31.2
         version: 0.31.2(rollup@2.79.1)(typescript@4.9.5)
+      semantic-release:
+        specifier: ^23.0.8
+        version: 23.0.8(typescript@4.9.5)
       tslint:
         specifier: ^6.1.3
         version: 6.1.3(typescript@4.9.5)
@@ -174,7 +183,7 @@ importers:
         version: 13.0.0(semantic-release@23.0.8)
       semantic-release:
         specifier: ^23.0.8
-        version: 23.0.8
+        version: 23.0.8(typescript@4.9.5)
       tslib:
         specifier: ^2.4.0
         version: 2.5.0
@@ -325,7 +334,7 @@ packages:
     resolution: {integrity: sha512-duORpUiYrEpzKIop6iNbjnwKLAKnJ47csTyRACyEmWj0QdUrm5aqNJGHSSEQSUAvNW0ojX0dOmK9dZduvkfeXA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-annotate-as-pure@7.22.5:
@@ -472,7 +481,7 @@ packages:
     resolution: {integrity: sha512-Gl7sK04b/2WOb6OPVeNy9eFKeD3L6++CzL3ykPOWqTn08xgYYK0wz4TUh2feIImDXxcVW3/9WQ1NMKY66/jfZA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-member-expression-to-functions@7.23.0:
@@ -528,7 +537,7 @@ packages:
     resolution: {integrity: sha512-HP59oD9/fEHQkdcbgFCnbmgH5vIQTJbxh2yf+CdM89/glUNnuzr87Q8GIjGEnOktTROemO0Pe0iPAYbqZuOUiA==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-optimise-call-expression@7.22.5:
@@ -568,7 +577,7 @@ packages:
       '@babel/helper-optimise-call-expression': 7.18.6
       '@babel/template': 7.21.9
       '@babel/traverse': 7.22.1
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -602,7 +611,7 @@ packages:
     resolution: {integrity: sha512-5y1JYeNKfvnT8sZcK9DVRtpTbGiomYIHviSP3OQWmDPU3DeH4a1ZlT/N2lyQ5P8egjcRaT/Y9aNqUxK0WsnIIg==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      '@babel/types': 7.22.3
+      '@babel/types': 7.23.3
     dev: true
 
   /@babel/helper-skip-transparent-expression-wrappers@7.22.5:
@@ -693,7 +702,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.3
-    dev: false
 
   /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.23.3(@babel/core@7.22.1):
     resolution: {integrity: sha512-iRkKcCqb7iGnq9+3G6rZ+Ciz5VywC4XNRHe57lKM+jOeYAoR0lVqdeeDRfh0tQcTfw/+vBhHn926FmQhLtlFLQ==}
@@ -1636,7 +1644,7 @@ packages:
       '@babel/helper-function-name': 7.21.0
       '@babel/helper-hoist-variables': 7.18.6
       '@babel/helper-split-export-declaration': 7.18.6
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@babel/types': 7.22.3
       debug: 4.3.4
       globals: 11.12.0
@@ -3088,7 +3096,7 @@ packages:
       aggregate-error: 3.1.0
       fs-extra: 11.2.0
       lodash: 4.17.21
-      semantic-release: 23.0.8
+      semantic-release: 23.0.8(typescript@4.9.5)
     dev: true
 
   /@semantic-release/commit-analyzer@12.0.0(semantic-release@23.0.8):
@@ -3104,7 +3112,7 @@ packages:
       import-from-esm: 1.3.4
       lodash-es: 4.17.21
       micromatch: 4.0.5
-      semantic-release: 23.0.8
+      semantic-release: 23.0.8(typescript@4.9.5)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3133,7 +3141,7 @@ packages:
       lodash: 4.17.21
       micromatch: 4.0.5
       p-reduce: 2.1.0
-      semantic-release: 23.0.8
+      semantic-release: 23.0.8(typescript@4.9.5)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3159,7 +3167,7 @@ packages:
       lodash-es: 4.17.21
       mime: 4.0.3
       p-filter: 4.1.0
-      semantic-release: 23.0.8
+      semantic-release: 23.0.8(typescript@4.9.5)
       url-join: 5.0.0
     transitivePeerDependencies:
       - supports-color
@@ -3182,7 +3190,7 @@ packages:
       rc: 1.2.8
       read-pkg: 9.0.1
       registry-auth-token: 5.0.2
-      semantic-release: 23.0.8
+      semantic-release: 23.0.8(typescript@4.9.5)
       semver: 7.5.4
       tempy: 3.1.0
     dev: true
@@ -3203,7 +3211,7 @@ packages:
       into-stream: 7.0.0
       lodash-es: 4.17.21
       read-pkg-up: 11.0.0
-      semantic-release: 23.0.8
+      semantic-release: 23.0.8(typescript@4.9.5)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3644,7 +3652,7 @@ packages:
   /@vue/compiler-core@3.2.31:
     resolution: {integrity: sha512-aKno00qoA4o+V/kR6i/pE+aP+esng5siNAVQ422TkBNM6qA4veXiZbSe8OTXHXquEi/f6Akc+nLfB4JGfe4/WQ==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/shared': 3.2.31
       estree-walker: 2.0.2
       source-map: 0.6.1
@@ -3652,7 +3660,7 @@ packages:
   /@vue/compiler-core@3.2.47:
     resolution: {integrity: sha512-p4D7FDnQb7+YJmO2iPEv0SQNeNzcbHdGByJDsT4lynf63AFkOTFN07HsiRSvjGo0QrxR/o3d0hUyNCUnBU2Tig==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/shared': 3.2.47
       estree-walker: 2.0.2
       source-map: 0.6.1
@@ -3688,7 +3696,7 @@ packages:
   /@vue/compiler-sfc@3.2.31:
     resolution: {integrity: sha512-748adc9msSPGzXgibHiO6T7RWgfnDcVQD+VVwYgSsyyY8Ans64tALHZANrKtOzvkwznV/F4H7OAod/jIlp/dkQ==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.2.31
       '@vue/compiler-dom': 3.2.31
       '@vue/compiler-ssr': 3.2.31
@@ -3754,7 +3762,7 @@ packages:
   /@vue/reactivity-transform@3.2.31:
     resolution: {integrity: sha512-uS4l4z/W7wXdI+Va5pgVxBJ345wyGFKvpPYtdSgvfJfX/x2Ymm6ophQlXXB6acqGHtXuBqNyyO3zVp9b1r0MOA==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.2.31
       '@vue/shared': 3.2.31
       estree-walker: 2.0.2
@@ -3763,7 +3771,7 @@ packages:
   /@vue/reactivity-transform@3.2.47:
     resolution: {integrity: sha512-m8lGXw8rdnPVVIdIFhf0LeQ/ixyHkH5plYuS83yop5n7ggVJU+z5v0zecwEnX7fa7HNLBhh2qngJJkxpwEEmYA==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.2.47
       '@vue/shared': 3.2.47
       estree-walker: 2.0.2
@@ -3773,7 +3781,7 @@ packages:
   /@vue/reactivity-transform@3.3.4:
     resolution: {integrity: sha512-MXgwjako4nu5WFLAjpBnCj/ieqcjE2aJBINUNQzkZQfzIZA4xn+0fV1tIYBJvvva3N3OvKGofRLvQIwEQPpaXw==}
     dependencies:
-      '@babel/parser': 7.22.3
+      '@babel/parser': 7.23.3
       '@vue/compiler-core': 3.3.4
       '@vue/shared': 3.3.4
       estree-walker: 2.0.2
@@ -4877,7 +4885,7 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /cosmiconfig@9.0.0:
+  /cosmiconfig@9.0.0(typescript@4.9.5):
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -4890,6 +4898,7 @@ packages:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
+      typescript: 4.9.5
     dev: true
 
   /cross-spawn@7.0.3:
@@ -9527,7 +9536,7 @@ packages:
     dev: true
     optional: true
 
-  /semantic-release@23.0.8:
+  /semantic-release@23.0.8(typescript@4.9.5):
     resolution: {integrity: sha512-yZkuWcTTfh5h/DrR4Q4QvJSARJdb6wjwn/sN0qKMYEkvwaVFek8YWfrgtL8oWaRdl0fLte0Y1wWMzLbwoaII1g==}
     engines: {node: '>=20.8.1'}
     hasBin: true
@@ -9538,7 +9547,7 @@ packages:
       '@semantic-release/npm': 12.0.0(semantic-release@23.0.8)
       '@semantic-release/release-notes-generator': 13.0.0(semantic-release@23.0.8)
       aggregate-error: 5.0.0
-      cosmiconfig: 9.0.0
+      cosmiconfig: 9.0.0(typescript@4.9.5)
       debug: 4.3.4
       env-ci: 11.0.0
       execa: 8.0.1
@@ -10697,7 +10706,6 @@ packages:
   /upath@2.0.1:
     resolution: {integrity: sha512-1uEe95xksV1O0CYKXo8vQvN1JEbtJp7lb7C5U9HMsIp6IVwntkH/oNUzyVNQSd4S1sYk2FpSSW44FqMc8qee5w==}
     engines: {node: '>=4'}
-    dev: true
 
   /update-browserslist-db@1.0.11(browserslist@4.21.5):
     resolution: {integrity: sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==}

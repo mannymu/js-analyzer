@@ -26,6 +26,15 @@ https://github.com/chennlang/js-analyzer/assets/41711206/63797bfd-440c-401e-a0d8
 - Analyzes unimported files and npm packages
 - Local storage, `Very secure`, does not involve networking and uploading
 
+## 🤝 Contributors
+
+Thank you to the following contributors for supporting this project! 🎉
+
+- [@mannymu](https://github.com/mannymu)
+- [@rxx-qingyi](https://github.com/rxx-qingyi)
+
+_✨ Thank you for your contributions!_
+
 ## Global Installation
 
 ### 1. Installation
@@ -90,7 +99,7 @@ js-analyzer.js
 ```js
 module.exports = {
   // Root directory
-  root: "/Users/ll/Downloads/react-admin-master",
+  root: "./",
   // Directories that do not need to be analyzed
   ignore: ["**/node_modules/**", "**/dist/**"],
   // Order of preference when parsing files without extensions

@@ -9,8 +9,7 @@ const launch = require("launch-editor");
 const template = require("art-template");
 const portfinder = require("portfinder");
 const { koaBody } = require("koa-body");
-const { JsAnalyzer } = require("../libs/core-dist/js-analyzer-core.cjs.js");
-// const { JsAnalyzer } = require("@js-analyzer/core");
+const { JsAnalyzer } = require("@js-analyzer/core");
 
 const app = new Koa();
 app.use(cors());
@@ -59,7 +58,7 @@ router.put("/config", async (ctx) => {
 // open file in editor
 router.get("/launch", async (ctx) => {
   const file = ctx.query.file;
-  launch(file, "code", (name, error) => {
+  launch(file, app.context.config.ide, (name, error) => {
     ctx.body = error;
   });
   ctx.body = "ok";
